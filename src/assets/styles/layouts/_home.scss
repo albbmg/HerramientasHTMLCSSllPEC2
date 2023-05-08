@@ -1,57 +1,30 @@
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  padding: 0; 
   margin: 0;
-  padding: 2rem;
-  font-family: $font-family-sans-serif;
-  font-size: 16px;
-  line-height: 24px;
-  background-color: $uoc-bg;
-  color: $uoc-corporate;
+  overflow-x: hidden;
+  font-family: $primary-font;
+  background: map-get($colors, gradient);
 }
 
-.uoc-container {
-  max-width: 800px;
-  margin: auto;
-  padding: 2rem;
-  border-radius: 2rem;
-  text-align: center;
-  background-color: #fff;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+h1 {
+  @include enfasis-title-styles;
 }
 
-.uoc-logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 1.5rem;
-  max-width: 200px;
-  height: auto;
-
-  @media (min-width: $mqMinWidth) {
-    max-width: none;
-  }
+button {
+  padding: map-get($button-style, padding);
+  background-color: map-get($button-style, background-color);
+  color: map-get($button-style, color);
+  text-transform: map-get($button-style, text-transform);
+  font-size: map-get($button-style, font-size);
+  font-weight: map-get($button-style, font-weight);
+  border-radius: map-get($button-style, border-radius);
+  border: map-get($button-style, border);
+  transition: map-get($button-style, transition);
 }
 
-.uoc-title {
-  font-family: $font-family-serif;
-  font-size: 24px;
-  font-weight: 700;
-  color: $uoc-corporate;
 
-  @media (min-width: $mqMinWidth) {
-    font-size: 36px;
-  }
-}
-
-.uoc-footer {
-  margin-top: 1.5rem;
-  font-size: 0.75rem;
-  text-align: center;
-}

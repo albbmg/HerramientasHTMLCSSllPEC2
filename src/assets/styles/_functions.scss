@@ -1,0 +1,40 @@
+@function responsive-width($size) {
+    $max-width-small: 768px;
+    $max-width-medium: 1024px;
+    $max-width-large: 1440px;
+    $percentage-small: 100%;
+    $percentage-medium: 90%;
+    $percentage-large: 80%;
+    $width: 0;
+  
+    @if $size == "small" {
+      $width: $percentage-small;
+    } @else if $size == "medium" {
+      $width: $percentage-medium;
+    } @else {
+      $width: $percentage-large;
+    }
+  
+    @return #{$width};
+}
+
+@function gradient($color1, $color2, $angle: 0deg) {
+    @return linear-gradient($angle, $color1, $color2);
+  }
+
+  
+@function button-styles($padding, $background-color, $color, $text-transform, $font-size, $font-weight, $border-radius, $border, $transition) {
+    @return (
+      padding: $padding,
+      background-color: $background-color,
+      color: $color,
+      text-transform: $text-transform,
+      font-size: $font-size,
+      font-weight: $font-weight,
+      border-radius: $border-radius,
+      border: $border,
+      transition: $transition,
+    );
+}
+  
+  

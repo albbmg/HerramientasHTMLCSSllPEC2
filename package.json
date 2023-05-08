@@ -4,7 +4,7 @@
   "private": true,
   "description": "Boilerplate for Advanced HTML/CSS Tools UOC students",
   "scripts": {
-    "parcel:serve": "parcel src/index.html -p 8123 --target web --open",
+    "parcel:serve": "parcel src/index.html -p 8124 --target web --open",
     "parcel:build": "parcel build src/index.html --target web --no-source-maps --no-cache",
     "clean": "rimraf dist .cache .cache-loader .parcel-cache",
     "dev": "npm-run-all clean parcel:serve",
@@ -42,6 +42,15 @@
     "postcss-preset-env": "^7.8.3",
     "posthtml-include": "^1.7.4",
     "rimraf": "^3.0.2",
-    "sharp": "0.31.1"
+    "sharp": "0.31.1",
+    "stylelint": "^15.6.1",
+    "stylelint-config-standard": "^33.0.0",
+    "stylelint-config-standard-scss": "^9.0.0",
+    "stylelint-selector-bem-pattern": "^2.1.1"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^6.4.0",
+    "@popperjs/core": "^2.11.7",
+    "bootstrap": "^5.2.3"
   }
 }
