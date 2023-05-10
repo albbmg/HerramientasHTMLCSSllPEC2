@@ -319,6 +319,7 @@ button:hover a {
 }
 .quote {
   border: 2px solid $card-border-color;
+  border-radius: 10px; 
   background-color: $card-bg-color; 
   display: flex; 
   justify-content: center; 
@@ -447,6 +448,10 @@ button:hover a {
   .quote {
     padding: 10px; 
     flex-direction: column; 
+  }
+
+  .form-bg {
+    width: 90%;  
   }
 }
 
