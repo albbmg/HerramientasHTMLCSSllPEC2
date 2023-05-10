@@ -47,6 +47,7 @@ body {
       background-color:map-get($colors, contrast-color);
     }
   }
+
   .navbar-nav {
     padding-top: 25px; 
     padding-bottom: 25px;
@@ -261,6 +262,7 @@ button:hover a {
   justify-content: center;
   margin-bottom: map-get($margins, large-space);
   position: relative; 
+
   &__content {
     p, h1 {
       position: relative; 
@@ -292,6 +294,7 @@ button:hover a {
     border: 2px solid $card-border-color;
     border-radius: $card-border-radius;
   }
+
   &__title {
     font-size: 1.5rem;
     line-height: 1.2;
@@ -312,11 +315,13 @@ button:hover a {
     margin-top: 20px; 
   }
 }
+
 .img-chess {
   height: 300px; 
   object-fit: cover; 
   width: 100%; 
 }
+
 .quote {
   border: 2px solid $card-border-color;
   border-radius: 10px; 
@@ -324,9 +329,11 @@ button:hover a {
   display: flex; 
   justify-content: center; 
   gap: 20px; 
+
   &__author {
     justify-content: center;
   }
+
   &__txt {
      font-size: 30px; 
   }
@@ -339,6 +346,7 @@ button:hover a {
   width: 700px; 
   margin: 0 auto; 
 }
+
 .form {
   &__group {
     margin-bottom: 1rem;
@@ -367,7 +375,7 @@ button:hover a {
     &:focus {
       outline: none;
       border-color: #80bdff;
-      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+      box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 25%);
     }
   }
 
