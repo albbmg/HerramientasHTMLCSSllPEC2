@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" type="text/css" href="./assets/styles/main.scss"><!-- do not remove this line! -->
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <title>CheckMate - Nuestro club de ajedrez</title>
+    <link rel="icon" type="image/png" href="./assets/images/peon.png">
+  </head>
+  <body>
+    <include src="./views/header.html"></include>
+    <main>
+        <div class="container">
+            <h1>¡Inscríbete!</h1>
+            <h2 class="text-center my-4">Únete a Check Mate y disfruta de todos nuestros torneos</h2>
+            <p class="text-center my-4">¡Únete al club! Forma parte de nuestro grupo y fórmate como ajedrecista. Te estamos esperando.</p>
+        </div>          
+        <div class="container-sm p-4 mt-5 mb-5 form-bg">
+            <form class="form">
+              <div class="form__group">
+                <label class="form__label" for="name">Nombre</label>
+                <input class="form__input" type="text" id="name" name="name" required>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="email">Correo electrónico</label>
+                <input class="form__input" type="email" id="email" name="email" required>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="message">Mensaje</label>
+                <textarea class="form__textarea" id="message" name="message" required></textarea>
+              </div>
+              <div class="form__group">
+                <label class="form__label" for="phone">Teléfono</label>
+                <input class="form__input" type="tel" id="phone" name="phone">
+              </div>
+              <button class="form__button" type="submit">Enviar</button>
+            </form>
+        </div>
+    </main>
+    <include src="./views/footer.html"></include>
+    <script type="module" src="./assets/scripts/main.js"></script><!-- do not remove this line! -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>

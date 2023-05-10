@@ -20,7 +20,7 @@
 
 @function gradient($color1, $color2, $angle: 0deg) {
     @return linear-gradient($angle, $color1, $color2);
-  }
+}
 
   
 @function button-styles($padding, $background-color, $color, $text-transform, $font-size, $font-weight, $border-radius, $border, $transition) {

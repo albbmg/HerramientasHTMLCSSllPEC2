@@ -1,20 +1,126 @@
+// Estilos generales
 * {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
 
+// Estilos generales secciones
 body {
   padding: 0; 
   margin: 0;
   overflow-x: hidden;
   font-family: $primary-font;
-  background: map-get($colors, gradient);
+  background: map-get($colors, secondary-color);
 }
 
+.header {
+  background-color: map-get($colors, primary-color);
+
+  .logo {
+    display: flex;
+    align-items: left;
+
+    img {
+      width: 75px;
+    }
+  }
+
+  .navbar-toggler {
+    border: none; 
+    padding: 0; 
+  }
+
+  .navbar-toggler-icon {
+    background-color: map-get($colors, secondary-color);
+    border-radius: 5px;
+  }
+
+  .nav-link {
+    color: map-get($colors, secondary-color);
+    font-size: 1.2rem;
+    font-weight: map-get($font-weights, text);
+    margin-right: map-get($margins, small-space);
+    border-radius: 4px;
+
+    &:hover {
+      color: map-get($colors, secondary-color);
+      background-color:map-get($colors, contrast-color);
+    }
+  }
+  .navbar-nav {
+    padding-top: 25px; 
+    padding-bottom: 25px;
+  }    
+}
+
+main, .header__inner, .footer__inner  {
+  padding-left: 2rem; 
+  padding-right: 2rem;
+  color: map-get($colors, primary-color); 
+  width: map-get($element-widths, full); 
+  margin: 0 auto; 
+}
+
+footer {
+  background-color: map-get($colors, primary-color);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center !important;
+  padding: 2rem;
+  font-size: 0.8rem;
+  color: map-get($colors, secondary-color);
+
+    img {
+      width: 50px; 
+    }
+
+    a {
+      @include link-styles;
+    }
+
+    a:hover {
+      color: map-get($colors, contrast-color);
+    }
+
+    p {
+      color: map-get($colors, link-color);
+      margin-top: 20px; 
+      text-align: center; 
+    }
+  
+}
+
+
+// Estilos generales textos
 h1 {
+  @include main-title-styles;
+}
+
+h2 {
+  @include secondary-title-styles;
+}
+
+h3 {
   @include enfasis-title-styles;
 }
 
+p {
+  @include text-styles;
+}
+
+a {
+  @include link-styles;
+}
+
+a:hover {
+  color: map-get($colors, primary-color);
+}
+
+// Estilos generales botones
 button {
   padding: map-get($button-style, padding);
   background-color: map-get($button-style, background-color);
@@ -26,5 +132,325 @@ button {
   border: map-get($button-style, border);
   transition: map-get($button-style, transition);
 }
+
+button:hover {
+  scale: (1.1);
+  transition: 0.5s;
+}
+
+button a {
+  color: map-get($colors, secondary-color) !important;
+  text-decoration: none; 
+}
+
+button:hover a {
+  color: map-get($colors, secondary-color) !important;
+  text-decoration: none; 
+}
+
+// Página de inicio
+@supports (display: grid) {
+  .chessboard__sup, .chessboard__inf {
+    display: grid;
+    grid-template-columns: repeat(22, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    height: 80px;
+    margin: 0 auto;
+  }
+  
+  .chessboard__sup .square:nth-child(odd), .chessboard__inf .square:nth-child(even) {
+    background-color: map-get($colors, primary-color);
+  }
+}
+
+@supports not (display: grid) {
+  .chessboard__sup, .chessboard__inf {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .square {
+    box-sizing: border-box;
+    width: 4%;
+    padding-bottom: 4%;
+    position: relative;
+  }
+  
+  .square::after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+  
+  .square:nth-child(odd) {
+    background-color: map-get($colors, primary-color);
+  }
+}
+
+.poster__content {
+  margin: 0 auto;
+  padding-top: map-get($margins, large-space);
+  padding-bottom: map-get($margins, large-space);
+}
+
+.poster__title {
+  text-align: center;
+}
+
+.poster__subtitle {
+  text-align: center;
+}
+
+.poster__cta {
+  display: inline-block;
+  margin-top: map-get($margins, mid-space);
+}
+
+// Página de miembros
+.member__container {
+  display: flex; 
+  flex-wrap: wrap;
+  gap: 20px; 
+  justify-content: center;
+  margin-top: map-get($margins, large-space);
+  margin-bottom: map-get($margins, large-space);
+}
+
+.card {
+  border: none; 
+  border-radius: $card-border-radius;
+  background-color: $card-bg-color;
+  color: $card-text-color;
+  overflow: hidden;
+  width: 30%; 
+  padding: 1.25rem;
+  display: flex; 
+  flex-direction: column; 
+  justify-content: space-between;
+  gap: 20px; 
+  min-height: 30px; 
+
+  &__img {
+    object-fit: cover;
+    height: 200px;
+    width: 200px;
+    margin: 0 auto; 
+  }
+}
+
+// Página de CheckMate
+
+.hero::before {
+  content: "";
+  background-image: url('../images/chess-bg.jpg');
+  background-size: cover;
+  height: 400px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  opacity: 0.35; 
+}
+
+.hero {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: map-get($margins, large-space);
+  position: relative; 
+  &__content {
+    p, h1 {
+      position: relative; 
+      z-index: 1; 
+      text-align: center; 
+    }
+  }
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-family: $primary-font;
+  font-weight: map-get($font-weights, mild);
+  color: map-get($colors, primary-color);
+  
+  &__item {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: map-get($margins, mid-space);
+    padding: map-get($margins, small-space);
+    background-color: $card-bg-color;
+    border: 2px solid $card-border-color;
+    border-radius: $card-border-radius;
+  }
+  &__title {
+    font-size: 1.5rem;
+    line-height: 1.2;
+    text-align: center;
+    margin: 0;
+  }
+
+  &__number {
+    padding: 2px 10px; 
+    background-color: map-get($colors, contrast-color);
+    color: map-get($colors, secondary-color);
+    border-radius: 100px; 
+    margin-right: 20px; 
+  }
+
+  &__description {
+    text-align: center; 
+    margin-top: 20px; 
+  }
+}
+.img-chess {
+  height: 300px; 
+  object-fit: cover; 
+  width: 100%; 
+}
+.quote {
+  border: 2px solid $card-border-color;
+  background-color: $card-bg-color; 
+  display: flex; 
+  justify-content: center; 
+  gap: 20px; 
+  &__author {
+    justify-content: center;
+  }
+  &__txt {
+     font-size: 30px; 
+  }
+}
+
+// Contacto
+.form-bg {
+  background-image: map-get($colors, gradient);
+  border-radius: 10px; 
+  width: 700px; 
+  margin: 0 auto; 
+}
+.form {
+  &__group {
+    margin-bottom: 1rem;
+  }
+
+  &__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+  }
+
+  &__input,
+  &__textarea {
+    display: block;
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+    &:focus {
+      outline: none;
+      border-color: #80bdff;
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    }
+  }
+
+  &__textarea {
+    min-height: 10rem;
+  }
+
+  &__button {
+    display: block;
+    width: 100%;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: 600;
+    background-color: map-get($colors, primary-color);
+    border: none;
+    border-radius: 0.25rem;
+    transition: background-color 0.15s ease-in-out;
+
+    &:hover {
+      color: map-get($colors, primary-color);
+      background-color: map-get($colors, secondary-color);
+    }
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  main, .header__inner, .footer__inner  {
+    width: map-get($element-widths, medium);
+  }
+
+  .footer__inner {
+    flex-direction: column;
+    justify-content: center;
+
+    ul {
+      justify-content: center; 
+    }
+  }
+  
+  h1 {
+    font-size: 50px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  .row {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .chessboard__sup, .chessboard__inf {
+    grid-template-columns: repeat(16, 1fr);
+    height: 70px; 
+  }
+
+  .card {
+    width: 45%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  main, .header__inner, .footer__inner {
+    width: map-get($element-widths, small);
+  }
+
+  .chessboard__sup, .chessboard__inf {
+    grid-template-columns: repeat(8, 1fr);
+    height: 60px;
+  }
+
+  .card {
+    width: 100%;
+  }
+  
+  .quote {
+    padding: 10px; 
+    flex-direction: column; 
+  }
+}
+
+
+
 
 

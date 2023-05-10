@@ -15,8 +15,9 @@ $font-weights: (
 $colors: (
   primary-color: #000,
   secondary-color: #FFF,
-  contrast-color: #f00, 
-  gradient: gradient(#f00, #FFF, 45deg),
+  contrast-color: #0c7, 
+  link-color: #a3a3a3, 
+  gradient: gradient(#00cc77, #0662a0, 45deg),
 ); 
 
 /* Márgenes y espaciados */
@@ -63,6 +64,15 @@ $container-width: 1440px;
   font-weight: map-get($font-weights, mild);
 }
 
+@mixin link-styles {
+  font-size: 1.2em;
+  line-height: 1;
+  color: map-get($colors, link-color);
+  text-align: left; 
+  font-weight: map-get($font-weights, mild);
+  text-decoration: underline; 
+}
+
 /* Ancho de elementos */
 $element-widths: (
   full: responsive-width(large),
@@ -70,11 +80,11 @@ $element-widths: (
   small: responsive-width(small),
 );
 
-/* Border-radius */
-$border-radius-style: (
-  images: 20px, 
-  buttons: 100px,
-);
-
 /* Botones */
-$button-style: button-styles(10px 60px 10px 60px, map-get($colors, primary-color), map-get($colors, secondary-color), uppercase, 16px, normal, 10px, none, all 0.5s ease);
+$button-style: button-styles(20px 60px 20px 60px, map-get($colors, contrast-color), map-get($colors, secondary-color), uppercase, 18px, normal, 10px, none, all 0.5s ease);
+
+/* Variables personalizadas para la card */
+$card-bg-color: #f8f9fa;
+$card-border-color: map-get($colors, contrast-color);
+$card-border-radius: 0.5rem;
+$card-text-color: map-get($colors, primary-color);
